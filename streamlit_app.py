@@ -30,7 +30,7 @@ st.subheader("hello from st.subheader")
 st.caption("hello from st.caption")
 st.code("# hello from st.code\na = 1234")
 with st.echo():
-    st.write("st.echo")
+    st.write("hello from st.echo")
 st.text("hello from st.text")
 st.latex(r"\int a x^2 \,dx")
 st.divider()
@@ -288,8 +288,9 @@ st.write(f"Your text_area input is {text_area_input}!")
 
 file_input = st.file_uploader("st.file_input")
 
-cam_input = st.camera_input("st.camera_input")
-st.write(f"Your cam input is {cam_input}!")
+if st.toggle("Show camera input (requires camera permission)", False):
+    cam_input = st.camera_input("st.camera_input")
+    st.write(f"Your cam input is {cam_input}!")
 
 
 "## Media elements"
@@ -348,7 +349,10 @@ tab_a.write("tab 2 content")
 "## Chat elements"
 
 "st.chat_input"
-st.container().chat_input()
+if st.toggle("Show chat input at the bottom of the screen", False):
+    st.chat_input()
+else:
+    st.container().chat_input()
 
 "st.chat_message"
 st.chat_message("assistant").write("Hello there!")
