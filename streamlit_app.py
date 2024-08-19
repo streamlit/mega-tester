@@ -38,18 +38,75 @@ st.divider()
 
 "## Data elements"
 data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+
 "st.dataframe"
 st.dataframe(data)
+
 "st.data_editor"
 st.data_editor(data)
+
+"st.column_config"
+data_df = pd.DataFrame(
+    {
+        "column": ["foo", "bar", "baz"],
+        "text": ["foo", "bar", "baz"],
+        "number": [1, 2, 3],
+        "checkbox": [True, False, True],
+        "selectbox": ["foo", "bar", "foo"],
+        "datetime": pd.to_datetime(
+            ["2021-01-01 00:00:00", "2021-01-02 00:00:00", "2021-01-03 00:00:00"]
+        ),
+        "date": pd.to_datetime(["2021-01-01", "2021-01-02", "2021-01-03"]),
+        "time": pd.to_datetime(["00:00:00", "01:00:00", "02:00:00"]),
+        "list": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+        "link": [
+            "https://streamlit.io",
+            "https://streamlit.io",
+            "https://streamlit.io",
+        ],
+        "image": [
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+        ],
+        "area_chart": [[1, 2, 1], [2, 3, 1], [3, 1, 2]],
+        "line_chart": [[1, 2, 1], [2, 3, 1], [3, 1, 2]],
+        "bar_chart": [[1, 2, 1], [2, 3, 1], [3, 1, 2]],
+        "progress": [0.1, 0.2, 0.3],
+    }
+)
+
+st.data_editor(
+    data_df,
+    column_config={
+        "column": st.column_config.Column("Column", help="A column tooltip"),
+        "text": st.column_config.TextColumn("TextColumn"),
+        "number": st.column_config.NumberColumn("NumberColumn"),
+        "checkbox": st.column_config.CheckboxColumn("CheckboxColumn"),
+        "selectbox": st.column_config.SelectboxColumn(
+            "SelectboxColumn", options=["foo", "bar", "baz"]
+        ),
+        "datetime": st.column_config.DatetimeColumn("DatetimeColumn"),
+        "date": st.column_config.DateColumn("DateColumn"),
+        "time": st.column_config.TimeColumn("TimeColumn"),
+        "list": st.column_config.ListColumn("ListColumn"),
+        "link": st.column_config.LinkColumn("LinkColumn"),
+        "image": st.column_config.ImageColumn("ImageColumn"),
+        "area_chart": st.column_config.AreaChartColumn("AreaChartColumn"),
+        "line_chart": st.column_config.LineChartColumn("LineChartColumn"),
+        "bar_chart": st.column_config.BarChartColumn("BarChartColumn"),
+        "progress": st.column_config.ProgressColumn("ProgressColumn"),
+        
+    },
+)
+
 "st.table"
 st.table(data.iloc[0:5])
-st.metric("st.metric", 42, 2)
-"st.json"
-st.json(data.iloc[0:3].to_dict())
 
-"### Column config"
-"TODO"
+st.metric("st.metric", 42, 2)
+
+"st.json"
+st.json(data.iloc[0:2].to_dict())
 
 
 "## Chart elements"
