@@ -18,21 +18,40 @@ st.write(
 )
 
 "## Write and magic"
-st.write("hello from st.write")
-"hello from magic"
+st.write("st.write")
+"magic"
 
 
 "## Text elements"
-st.markdown("hello from st.markdown")
-st.title("hello from st.title")
-st.header("hello from st.header")
-st.subheader("hello from st.subheader")
-st.caption("hello from st.caption")
-st.code("# hello from st.code\na = 1234")
+st.markdown("st.markdown")
+st.markdown('st.markdown with <span style="background: red">HTML</span>')
+st.markdown("st.markdown with help", help="Hello!")
+st.title("st.title")
+st.title("st.title with help", help="Hello!")
+st.header("st.header")
+st.header("st.header with help", help="Hello!")
+st.header("st.header with help", help="Hello!")
+st.header("st.header with blue divider", divider="blue")
+st.header("st.header with green divider", divider="green")
+st.header("st.header with orange divider", divider="orange")
+st.header("st.header with red divider", divider="red")
+st.header("st.header with violet divider", divider="violet")
+st.header("st.header with gray divider", divider="gray")
+st.header("st.header with rainbow divider", divider="rainbow")
+st.subheader("st.subheader")
+st.subheader("st.subheader with help", help="Hello!")
+st.caption("st.caption")
+st.caption('st.caption with <span style="background: red">HTML</span>')
+st.caption("st.caption with help", help="Hello!")
+st.code("# st.code\na = 1234")
+st.code("# st.code with line numbers\na = 1234", line_numbers=True)
+st.code('# st.code with line wrapping\na = "This is a very very very very very very very very very very very very long string"', wrap_lines=True)
 with st.echo():
-    st.write("hello from st.echo")
-st.text("hello from st.text")
+    st.write("st.echo")
 st.latex(r"\int a x^2 \,dx")
+st.latex(r"\int a x^2 \,dx", help="Hello!")
+st.text("st.text")
+st.text("st.text with help", help="Hello!")
 st.divider()
 
 
