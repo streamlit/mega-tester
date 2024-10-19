@@ -18,14 +18,16 @@ st.write(
 )
 
 "## Write and magic"
-st.write("st.write ")
+st.write("st.write")
 "magic"
 
 
 "## Text elements"
 st.markdown("st.markdown")
 st.markdown("st.markdown with help", help="Hello!")
-st.markdown("Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home:")
+st.markdown(
+    "Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home:"
+)
 st.markdown("""
 Text colors: 
 
@@ -52,7 +54,10 @@ st.caption("st.caption")
 st.caption("st.caption with help", help="Hello!")
 st.code("# st.code\na = 1234")
 st.code("# st.code with line numbers\na = 1234", line_numbers=True)
-st.code('# st.code with line wrapping\na = "This is a very very very very very very very very very very very very long string"', wrap_lines=True)
+st.code(
+    '# st.code with line wrapping\na = "This is a very very very very very very very very very very very very long string"',
+    wrap_lines=True,
+)
 with st.echo():
     st.write("st.echo")
 st.latex(r"\int a x^2 \,dx")
@@ -63,6 +68,7 @@ st.divider()
 
 
 "## Data elements"
+np.random.seed(42)
 data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 
 "st.dataframe"
@@ -122,29 +128,55 @@ st.data_editor(
         "line_chart": st.column_config.LineChartColumn("LineChartColumn"),
         "bar_chart": st.column_config.BarChartColumn("BarChartColumn"),
         "progress": st.column_config.ProgressColumn("ProgressColumn"),
-        
     },
 )
 
 "st.table"
 st.table(data.iloc[0:5])
 
-st.metric("st.metric", 42, 2)
+col1, col2 = st.columns(2)
+col1.metric("st.metric positive", 42, 2)
+col2.metric("st.metric negative", 42, -2)
 
 "st.json"
-st.json(data.iloc[0:2].to_dict())
+st.json(
+    {
+        "foo": "bar",
+        "numbers": [
+            123,
+            4.56,
+        ],
+        "level1": {"level2": {"level3": {"a": "b"}}},
+    },
+    expanded=2,
+)
 
 
 "## Chart elements"
 data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 "st.area_chart"
-st.area_chart(data)
-"st.line_chart"
-st.line_chart(data)
+stack = st.radio(
+    "stack",
+    [None, True, False, "normalize", "center"],
+    horizontal=True,
+    key="area_chart_stack",
+)
+st.area_chart(data, x_label="x label", y_label="y label", stack=stack)
 "st.bar_chart"
-st.bar_chart(data)
+horizontal = st.toggle("horizontal", False)
+stack = st.radio(
+    "stack",
+    [None, True, False, "normalize", "center"],
+    horizontal=True,
+    key="bar_chart_stack",
+)
+st.bar_chart(
+    data, x_label="x label", y_label="y label", horizontal=horizontal, stack=stack
+)
+"st.line_chart"
+st.line_chart(data, x_label="x label", y_label="y label")
 "st.scatter_chart"
-st.scatter_chart(data)
+st.scatter_chart(data, x_label="x label", y_label="y label")
 
 "st.map"
 df = pd.DataFrame(
@@ -261,8 +293,13 @@ st.graphviz_chart(
 
 
 "## Input widgets"
-button_input = st.button("st.button")
-if button_input:
+if st.button("st.button"):
+    st.write("You pressed the button!")
+
+if st.button("st.button primary", type="primary"):
+    st.write("You pressed the button!")
+
+if st.button("st.button with icon", icon=":material/home:"):
     st.write("You pressed the button!")
 
 text_contents = "This is some text"
@@ -273,6 +310,8 @@ st.feedback()
 
 st.link_button("st.link_button", "https://streamlit.io")
 
+st.page_link("https://streamlit.io", label="st.page_link", icon=":material/home:")
+
 checkbox_input = st.checkbox("st.checkbox")
 st.write(f"Your checkbox input is {checkbox_input}!")
 
@@ -280,6 +319,9 @@ toggle_input = st.toggle("st.toggle")
 st.write(f"Your toggle input is {toggle_input}!")
 
 radio_input = st.radio("st.radio", ["cat", "dog"])
+st.write(f"Your radio input is {radio_input}!")
+
+radio_input = st.radio("st.radio horizontal", ["cat", "dog"], horizontal=True)
 st.write(f"Your radio input is {radio_input}!")
 
 selectbox_input = st.selectbox("st.selectbox", ["cat", "dog"])
@@ -311,6 +353,9 @@ st.write(f"Your text input is {text_input}!")
 
 text_area_input = st.text_area("st.text_area")
 st.write(f"Your text_area input is {text_area_input}!")
+
+audio_input = st.experimental_audio_input("st.experimental_audio_input")
+st.write(f"Your audio input is {audio_input}!")
 
 file_input = st.file_uploader("st.file_input")
 
@@ -409,6 +454,7 @@ if st.button("st.progress"):
     my_bar = st.progress(0)
     for percent_complete in range(100):
         my_bar.progress(percent_complete + 1)
+        time.sleep(0.05)
 
 if st.button("st.spinner"):
     with st.spinner("Wait!"):
@@ -425,9 +471,13 @@ if st.button("st.snow"):
     st.snow()
 
 st.success("st.success")
+st.success("st.success with icon", icon=":material/home:")
 st.info("st.info")
+st.info("st.info with icon", icon=":material/home:")
 st.warning("st.warning")
+st.warning("st.warning with icon", icon=":material/home:")
 st.error("st.error")
+st.error("st.error with icon", icon=":material/home:")
 st.exception(RuntimeError("st.exception"))
 
 
