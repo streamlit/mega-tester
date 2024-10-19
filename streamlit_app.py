@@ -23,7 +23,7 @@ st.write("st.write")
 
 
 "## Text elements"
-st.markdown('st.markdown **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :material/home: :red[red] :blue[blue] :green[green] :violet[violet] :orange[orange] :red-background[red] :blue-background[blue] :green-background[green] :violet-background[violet] :orange-background[orange] <span style="background: red">HTML</span>', unsafe_allow_html=True)
+st.markdown('st.markdown **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :material/home: :red[red] :blue[blue] :green[green] :violet[violet] :orange[orange] :red-background[red] :blue-background[blue] :green-background[green] :violet-background[violet] :orange-background[orange] <span style="background: red">HTML</span>', unsafe_allow_html=False)
 st.markdown("st.markdown with help :material/home:", help="Hello!")
 st.title("st.title", help="Hello!")
 st.title("st.title with help", help="Hello!")
