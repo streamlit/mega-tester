@@ -23,7 +23,7 @@ st.write("st.write")
 
 
 "## Text elements"
-st.markdown('st.markdown **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :material/home: :red[red] :blue[blue] :green[green] :violet[violet] :orange[orange] :red-background[red] :blue-background[blue] :green-background[green] :violet-background[violet] :orange-background[orange] <span style="background: red">HTML</span>', unsafe_allow_html=False)
+st.markdown("st.markdown **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home: :red[red] :blue[blue] :green[green] :violet[violet] :orange[orange] :red-background[red] :blue-background[blue] :green-background[green] :violet-background[violet] :orange-background[orange]")
 st.markdown("st.markdown with help :material/home:", help="Hello!")
 st.title("st.title", help="Hello!")
 st.title("st.title with help", help="Hello!")
@@ -38,7 +38,7 @@ st.header("st.header with gray divider", divider="gray")
 st.header("st.header with rainbow divider", divider="rainbow")
 st.subheader("st.subheader")
 st.subheader("st.subheader with help", help="Hello!")
-st.caption('st.caption **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :joy: :material/home: :red[red] :blue[blue] :green[green] :violet[violet] :orange[orange] :red-background[red] :blue-background[blue] :green-background[green] :violet-background[violet] :orange-background[orange] <span style="background: red">HTML</span>', unsafe_allow_html=True)
+st.caption("st.caption **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home: :red[red] :blue[blue] :green[green] :violet[violet] :orange[orange] :red-background[red] :blue-background[blue] :green-background[green] :violet-background[violet] :orange-background[orange]")
 st.caption("st.caption with help", help="Hello!")
 st.code("# st.code\na = 1234")
 st.code("# st.code with line numbers\na = 1234", line_numbers=True)
