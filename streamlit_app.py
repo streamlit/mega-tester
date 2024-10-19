@@ -27,8 +27,11 @@ st.markdown("st.markdown")
 st.markdown("Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home:")
 st.markdown("""
 Text colors: 
+
 :blue[blue] :green[green] :orange[orange] :red[red] :violet[violet] :gray[gray] :rainbow[rainbow] 
+
 :blue-background[blue] :green-background[green] :orange-background[orange] :red-background[red] :violet-background[violet] :gray-background[gray] :rainbow-background[rainbow]
+
 :blue-background[:blue[blue]] :green-background[:green[green]] :orange-background[:orange[orange]] :red-background[:red[red]] :violet-background[:violet[violet]] :gray-background[:gray[gray]] :rainbow-background[:rainbow[rainbow]]
 """)
 st.markdown("st.markdown with help", help="Hello!")
