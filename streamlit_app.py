@@ -24,6 +24,7 @@ st.write("st.write")
 
 "## Text elements"
 st.markdown("st.markdown")
+st.markdown("st.markdown with help", help="Hello!")
 st.markdown("Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home:")
 st.markdown("""
 Text colors: 
@@ -34,7 +35,6 @@ Text colors:
 
 :blue-background[:blue[blue]] :green-background[:green[green]] :orange-background[:orange[orange]] :red-background[:red[red]] :violet-background[:violet[violet]] :gray-background[:gray[gray]] :rainbow-background[:rainbow[rainbow]]
 """)
-st.markdown("st.markdown with help", help="Hello!")
 st.title("st.title", help="Hello!")
 st.title("st.title with help", help="Hello!")
 st.header("st.header")
