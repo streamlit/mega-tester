@@ -25,7 +25,6 @@ st.write("st.write")
 "## Text elements"
 st.markdown("st.markdown")
 st.markdown("Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home:")
-blue, green, orange, red, violet, gray/grey, rainbow. 
 st.markdown("""
 Text colors: 
 :blue[blue] :green[green] :orange[orange] :red[red] :violet[violet] :gray[gray] :rainbow[rainbow] 
