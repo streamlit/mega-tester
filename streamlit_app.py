@@ -18,7 +18,7 @@ st.write(
 )
 
 "## Write and magic"
-st.write("st.write")
+st.write("st.write ")
 "magic"
 
 
