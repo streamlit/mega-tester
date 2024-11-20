@@ -12,10 +12,14 @@ st.set_page_config("Mega tester app", "🎈", initial_sidebar_state="collapsed")
 st.logo("https://streamlit.io/images/brand/streamlit-mark-color.png")
 st.title("🎈 Mega tester app")
 
-st.write(
-    "This app tests all Streamlit commands in one app. It uses `streamlit-nightly`, so "
-    "you always see the latest state of Streamlit's `develop` branch."
-)
+def page1():
+    pass
+    
+def page2():
+    pass
+
+st.navigation([st.Page(page1, title="Page 1", icon=":material/home:"), st.Page(page2, title="Page 2", icon=":material/settings:")])
+
 
 "## Write and magic"
 st.write("st.write")
