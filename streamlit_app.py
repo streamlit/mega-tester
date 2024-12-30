@@ -345,7 +345,13 @@ st.write(f"Your multiselect input is {multiselect_input}!")
 pills_input = st.pills("st.pills", ["cat", "dog", "monkey", "snake", "bird"])
 st.write(f"Your pills input is {pills_input}!")
 
+pills_input = st.pills("st.pills multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi")
+st.write(f"Your pills input is {pills_input}!")
+
 segmented_control_input = st.segmented_control("st.segmented_control", ["cat", "dog", "monkey", "snake", "bird"])
+st.write(f"Your segmented control input is {segmented_control_input}!")
+
+segmented_control_input = st.segmented_control("st.segmented_control multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi")
 st.write(f"Your segmented control input is {segmented_control_input}!")
 
 select_slider_input = st.select_slider("st.select_slider", ["cat", "dog"])
