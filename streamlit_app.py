@@ -30,16 +30,16 @@ st.write("st.write")
 st.markdown("st.markdown")
 st.markdown("st.markdown with help", help="Hello!")
 st.markdown(
-    "Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home:"
+    "Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home: :streamlit: <- -> <-> -- >= <= ~="
 )
 st.markdown("""
 Text colors: 
 
-:blue[blue] :green[green] :orange[orange] :red[red] :violet[violet] :gray[gray] :rainbow[rainbow] 
+:blue[blue] :green[green] :orange[orange] :red[red] :violet[violet] :gray[gray] :rainbow[rainbow] :primary[primary]
 
-:blue-background[blue] :green-background[green] :orange-background[orange] :red-background[red] :violet-background[violet] :gray-background[gray] :rainbow-background[rainbow]
+:blue-background[blue] :green-background[green] :orange-background[orange] :red-background[red] :violet-background[violet] :gray-background[gray] :rainbow-background[rainbow] :primary-background[primary]
 
-:blue-background[:blue[blue]] :green-background[:green[green]] :orange-background[:orange[orange]] :red-background[:red[red]] :violet-background[:violet[violet]] :gray-background[:gray[gray]] :rainbow-background[:rainbow[rainbow]]
+:blue-background[:blue[blue]] :green-background[:green[green]] :orange-background[:orange[orange]] :red-background[:red[red]] :violet-background[:violet[violet]] :gray-background[:gray[gray]] :rainbow-background[:rainbow[rainbow]] :primary-background[:primary[primary]]
 """)
 st.title("st.title", help="Hello!")
 st.title("st.title with help", help="Hello!")
@@ -115,7 +115,7 @@ data_df = pd.DataFrame(
 st.data_editor(
     data_df,
     column_config={
-        "column": st.column_config.Column("Column", help="A column tooltip"),
+        "column": st.column_config.Column("Column", help="A column tooltip", pinned=True),
         "text": st.column_config.TextColumn("TextColumn"),
         "number": st.column_config.NumberColumn("NumberColumn"),
         "checkbox": st.column_config.CheckboxColumn("CheckboxColumn"),
@@ -141,6 +141,10 @@ st.table(data.iloc[0:5])
 col1, col2 = st.columns(2)
 col1.metric("st.metric positive", 42, 2)
 col2.metric("st.metric negative", 42, -2)
+
+col1, col2 = st.columns(2)
+col1.metric("st.metric with border positive", 42, 2, border=True)
+col2.metric("st.metric with border negative", 42, -2, border=True)
 
 "st.json"
 st.json(
@@ -304,6 +308,9 @@ if st.button("st.button"):
 if st.button("st.button primary", type="primary"):
     st.write("You pressed the button!")
 
+if st.button("st.button tertiary", type="tertiary"):
+    st.write("You pressed the button!")
+
 if st.button("st.button with icon", icon=":material/home:"):
     st.write("You pressed the button!")
 
@@ -335,6 +342,12 @@ st.write(f"Your selectbox input is {selectbox_input}!")
 multiselect_input = st.multiselect("st.multiselect", ["cat", "dog"])
 st.write(f"Your multiselect input is {multiselect_input}!")
 
+pills_input = st.pills("st.pills", ["cat", "dog"])
+st.write(f"Your pills input is {pills_input}!")
+
+segmented_control_input = st.segmented_control("st.segmented_control", ["cat", "dog"])
+st.write(f"Your segmented control input is {segmented_control_input}!")
+
 select_slider_input = st.select_slider("st.select_slider", ["cat", "dog"])
 st.write(f"Your select_slider input is {select_slider_input}!")
 
@@ -359,7 +372,7 @@ st.write(f"Your text input is {text_input}!")
 text_area_input = st.text_area("st.text_area")
 st.write(f"Your text_area input is {text_area_input}!")
 
-audio_input = st.experimental_audio_input("st.experimental_audio_input")
+audio_input = st.audio_input("st.audio_input")
 st.write(f"Your audio input is {audio_input}!")
 
 file_input = st.file_uploader("st.file_input")
