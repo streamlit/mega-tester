@@ -8,7 +8,7 @@ import plotly.express as px
 import pydeck as pdk
 import streamlit as st
 
-st.set_page_config("Mega tester app", "🎈", initial_sidebar_state="collapsed")
+st.set_page_config("Mega tester app", "🎈")
 st.logo("https://streamlit.io/images/brand/streamlit-mark-color.png")
 st.title("🎈 Mega tester app")
 
@@ -21,7 +21,7 @@ def page2():
 def page3():
     pass
 
-st.navigation({"General": [st.Page(page1, title="Home", icon=":material/home:"), st.Page(page2, title="Data", icon=":material/monitoring:")], "Admin": [st.Page(page3, title="Settings", icon=":material/settings:")]})
+st.navigation({"General": [st.Page(page1, title="Home", icon=":material/home:"), st.Page(page2, title="Data visualizations", icon=":material/monitoring:")], "Admin": [st.Page(page3, title="Settings", icon=":material/settings:")]})
 
 
 "## Write and magic"
