@@ -324,10 +324,10 @@ st.link_button("st.link_button", "https://streamlit.io")
 
 st.page_link("https://streamlit.io", label="st.page_link", icon=":material/home:")
 
-checkbox_input = st.checkbox("st.checkbox")
+checkbox_input = st.checkbox("st.checkbox", True)
 st.write(f"Your checkbox input is {checkbox_input}!")
 
-toggle_input = st.toggle("st.toggle")
+toggle_input = st.toggle("st.toggle", True)
 st.write(f"Your toggle input is {toggle_input}!")
 
 radio_input = st.radio("st.radio", ["cat", "dog"])
@@ -336,25 +336,19 @@ st.write(f"Your radio input is {radio_input}!")
 radio_input = st.radio("st.radio horizontal", ["cat", "dog"], horizontal=True)
 st.write(f"Your radio input is {radio_input}!")
 
-selectbox_input = st.selectbox("st.selectbox", ["cat", "dog"])
+selectbox_input = st.selectbox("st.selectbox", ["cat", "dog", "monkey", "snake", "bird"])
 st.write(f"Your selectbox input is {selectbox_input}!")
 
-multiselect_input = st.multiselect("st.multiselect", ["cat", "dog"])
+multiselect_input = st.multiselect("st.multiselect", ["cat", "dog", "monkey", "snake", "bird"], default=["cat", "monkey"])
 st.write(f"Your multiselect input is {multiselect_input}!")
 
-pills_input = st.pills("st.pills", ["cat", "dog", "monkey", "snake", "bird"])
+pills_input = st.pills("st.pills multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi", default=["cat", "monkey"])
 st.write(f"Your pills input is {pills_input}!")
 
-pills_input = st.pills("st.pills multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi")
-st.write(f"Your pills input is {pills_input}!")
-
-segmented_control_input = st.segmented_control("st.segmented_control", ["cat", "dog", "monkey", "snake", "bird"])
+segmented_control_input = st.segmented_control("st.segmented_control multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi", default=["cat", "monkey"])
 st.write(f"Your segmented control input is {segmented_control_input}!")
 
-segmented_control_input = st.segmented_control("st.segmented_control multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi")
-st.write(f"Your segmented control input is {segmented_control_input}!")
-
-select_slider_input = st.select_slider("st.select_slider", ["cat", "dog"])
+select_slider_input = st.select_slider("st.select_slider", options=["xsmall", "small", "medium", "large", "xlarge"], value="small")
 st.write(f"Your select_slider input is {select_slider_input}!")
 
 color_input = st.color_picker("st.color_picker")
@@ -363,7 +357,7 @@ st.write(f"Your color input hex is {color_input}!")
 number_input = st.number_input("st.number_input")
 st.write(f"Your number input is {number_input}!")
 
-slider_input = st.slider("st.slider")
+slider_input = st.slider("st.slider", value=30)
 st.write(f"Your slider input is {slider_input}!")
 
 date_input = st.date_input("st.date_input")
