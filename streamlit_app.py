@@ -318,7 +318,9 @@ text_contents = "This is some text"
 st.download_button("st.download_button", data=text_contents)
 
 "st.feedback"
-st.feedback()
+st.feedback("thumbs")
+st.feedback("faces")
+st.feedback("stars")
 
 st.link_button("st.link_button", "https://streamlit.io")
 
