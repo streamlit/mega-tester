@@ -30,7 +30,7 @@ st.write("st.write")
 st.markdown("st.markdown")
 st.markdown("st.markdown with help", help="Hello!")
 st.markdown(
-    "Markdown features: **bold** *italic* ~strikethrough~ `code` $a=b$ 🐶 :cat: :material/home: :streamlit: <- -> <-> -- >= <= ~="
+    "Markdown features: **bold** *italic* ~strikethrough~ [link](https://streamlit.io) `code` $a=b$ 🐶 :cat: :material/home: :streamlit: <- -> <-> -- >= <= ~="
 )
 st.markdown("""
 Text colors: 
