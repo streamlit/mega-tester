@@ -434,6 +434,13 @@ with st.popover("st.popover"):
 
 st.sidebar.write("st.sidebar")
 
+with st.sidebar:
+    st.selectbox("st.selectbox sidebar", ["cat", "dog", "monkey", "snake", "bird"])
+    st.button("st.button sidebar")
+    st.checkbox("st.checkbox sidebar", True)
+    st.info("st.info sidebar")
+    st.expander("st.expander sidebar").write("works!")
+
 "st.tabs"
 tab_a, tab_b = st.tabs(["tab 1", "tab 2"])
 tab_b.write("tab 1 content")
