@@ -18,7 +18,10 @@ def page1():
 def page2():
     pass
 
-st.navigation([st.Page(page1, title="Page 1", icon=":material/home:"), st.Page(page2, title="Page 2", icon=":material/settings:")])
+def page3():
+    pass
+
+st.navigation({"General": [st.Page(page1, title="Home", icon=":material/home:"), st.Page(page2, title="Data", icon=":material/monitoring")], "Admin": [st.Page(page3, title="Settings", icon=":material/settings:")]})
 
 
 "## Write and magic"
@@ -41,7 +44,7 @@ Text colors:
 
 :blue-background[:blue[blue]] :green-background[:green[green]] :orange-background[:orange[orange]] :red-background[:red[red]] :violet-background[:violet[violet]] :gray-background[:gray[gray]] :rainbow-background[:rainbow[rainbow]] :primary-background[:primary[primary]]
 """)
-st.title("st.title", help="Hello!")
+st.title("st.title")
 st.title("st.title with help", help="Hello!")
 st.header("st.header")
 st.header("st.header with help", help="Hello!")
