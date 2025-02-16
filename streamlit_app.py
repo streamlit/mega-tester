@@ -21,7 +21,7 @@ def page2():
 def page3():
     pass
 
-st.navigation({"General": [st.Page(page1, title="Home", icon=":material/home:"), st.Page(page2, title="Data", icon=":material/monitoring")], "Admin": [st.Page(page3, title="Settings", icon=":material/settings:")]})
+st.navigation({"General": [st.Page(page1, title="Home", icon=":material/home:"), st.Page(page2, title="Data", icon=":material/bar_chart")], "Admin": [st.Page(page3, title="Settings", icon=":material/settings:")]})
 
 
 "## Write and magic"
