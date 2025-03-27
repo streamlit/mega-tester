@@ -393,12 +393,12 @@ st.image("https://picsum.photos/200/300")
 
 "st.audio"
 st.audio(
-    "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3"
+    "https://file-examples.com/storage/fe8d06553067e519a994eaa/2017/11/file_example_MP3_700KB.mp3"
 )
 
 "st.video"
 st.video(
-    "https://file-examples.com/wp-content/storage/2017/04/file_example_MP4_480_1_5MG.mp4"
+    "https://file-examples.com/storage/fe8d06553067e519a994eaa/2017/04/file_example_MP4_480_1_5MG.mp4"
 )
 
 
