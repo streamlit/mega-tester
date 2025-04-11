@@ -121,17 +121,11 @@ data_df = pd.DataFrame(
         "json": [
             {
                 "foo": "bar",
-                "numbers": [123, 4.56],
-                "level1": {"level2": {"level3": {"a": "b"}}},
             },
             {
-                "foo": "bar",
                 "numbers": [123, 4.56],
-                "level1": {"level2": {"level3": {"a": "b"}}},
             },
             {
-                "foo": "bar",
-                "numbers": [123, 4.56],
                 "level1": {"level2": {"level3": {"a": "b"}}},
             },
         ],
