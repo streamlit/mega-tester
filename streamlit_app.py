@@ -12,16 +12,28 @@ st.set_page_config("Mega tester app", "🎈")
 st.logo("https://streamlit.io/images/brand/streamlit-mark-color.png")
 st.title("🎈 Mega tester app")
 
+
 def page1():
     pass
-    
+
+
 def page2():
     pass
+
 
 def page3():
     pass
 
-st.navigation({"General": [st.Page(page1, title="Home", icon=":material/home:"), st.Page(page2, title="Data visualizations", icon=":material/monitoring:")], "Admin": [st.Page(page3, title="Settings", icon=":material/settings:")]})
+
+st.navigation(
+    {
+        "General": [
+            st.Page(page1, title="Home", icon=":material/home:"),
+            st.Page(page2, title="Data visualizations", icon=":material/monitoring:"),
+        ],
+        "Admin": [st.Page(page3, title="Settings", icon=":material/settings:")],
+    }
+)
 
 
 "## Write and magic"
@@ -31,9 +43,8 @@ st.write("st.write")
 
 "## Text elements"
 st.markdown("st.markdown")
-st.markdown("st.markdown with help", help="Hello!")
 st.markdown(
-    "Markdown features: **bold** *italic* ~strikethrough~ [link](https://streamlit.io) `code` $a=b$ 🐶 :cat: :material/home: :streamlit: <- -> <-> -- >= <= ~="
+    "Markdown features: **bold** *italic* ~strikethrough~ [link](https://streamlit.io) `code` $a=b$ 🐶 :cat: :material/home: :streamlit: <- -> <-> -- >= <= ~= :small[small]"
 )
 st.markdown("""
 Text colors: 
@@ -42,12 +53,10 @@ Text colors:
 
 :blue-background[blue] :green-background[green] :orange-background[orange] :red-background[red] :violet-background[violet] :gray-background[gray] :rainbow-background[rainbow] :primary-background[primary]
 
-:blue-background[:blue[blue]] :green-background[:green[green]] :orange-background[:orange[orange]] :red-background[:red[red]] :violet-background[:violet[violet]] :gray-background[:gray[gray]] :rainbow-background[:rainbow[rainbow]] :primary-background[:primary[primary]]
+:blue-badge[blue] :green-badge[green] :orange-badge[orange] :red-badge[red] :violet-badge[violet] :gray-badge[gray] :primary-badge[primary]
 """)
-st.title("st.title")
-st.title("st.title with help", help="Hello!")
-st.header("st.header")
-st.header("st.header with help", help="Hello!")
+st.title("st.title", help="Hello!")
+st.header("st.header", help="Hello!")
 st.header("st.header with blue divider", divider="blue")
 st.header("st.header with green divider", divider="green")
 st.header("st.header with orange divider", divider="orange")
@@ -55,10 +64,9 @@ st.header("st.header with red divider", divider="red")
 st.header("st.header with violet divider", divider="violet")
 st.header("st.header with gray divider", divider="gray")
 st.header("st.header with rainbow divider", divider="rainbow")
-st.subheader("st.subheader")
-st.subheader("st.subheader with help", help="Hello!")
-st.caption("st.caption")
-st.caption("st.caption with help", help="Hello!")
+st.subheader("st.subheader", help="Hello!")
+st.badge("st.badge", icon=":material/home:", color="green")
+st.caption("st.caption", help="Hello!")
 st.code("# st.code\na = 1234")
 st.code("# st.code with line numbers\na = 1234", line_numbers=True)
 st.code(
@@ -67,10 +75,8 @@ st.code(
 )
 with st.echo():
     st.write("st.echo")
-st.latex(r"\int a x^2 \,dx")
 st.latex(r"\int a x^2 \,dx", help="Hello!")
-st.text("st.text")
-st.text("st.text with help", help="Hello!")
+st.text("st.text", help="Hello!")
 st.divider()
 
 
@@ -112,13 +118,32 @@ data_df = pd.DataFrame(
         "line_chart": [[1, 2, 1], [2, 3, 1], [3, 1, 2]],
         "bar_chart": [[1, 2, 1], [2, 3, 1], [3, 1, 2]],
         "progress": [0.1, 0.2, 0.3],
+        "json": [
+            {
+                "foo": "bar",
+                "numbers": [123, 4.56],
+                "level1": {"level2": {"level3": {"a": "b"}}},
+            },
+            {
+                "foo": "bar",
+                "numbers": [123, 4.56],
+                "level1": {"level2": {"level3": {"a": "b"}}},
+            },
+            {
+                "foo": "bar",
+                "numbers": [123, 4.56],
+                "level1": {"level2": {"level3": {"a": "b"}}},
+            },
+        ],
     }
 )
 
 st.data_editor(
     data_df,
     column_config={
-        "column": st.column_config.Column("Column", help="A column tooltip", pinned=True),
+        "column": st.column_config.Column(
+            "Column", help="A column tooltip", pinned=True
+        ),
         "text": st.column_config.TextColumn("TextColumn"),
         "number": st.column_config.NumberColumn("NumberColumn"),
         "checkbox": st.column_config.CheckboxColumn("CheckboxColumn"),
@@ -135,6 +160,7 @@ st.data_editor(
         "line_chart": st.column_config.LineChartColumn("LineChartColumn"),
         "bar_chart": st.column_config.BarChartColumn("BarChartColumn"),
         "progress": st.column_config.ProgressColumn("ProgressColumn"),
+        "json": st.column_config.JsonColumn("JSONColumn"),
     },
 )
 
@@ -341,19 +367,39 @@ st.write(f"Your radio input is {radio_input}!")
 radio_input = st.radio("st.radio horizontal", ["cat", "dog"], horizontal=True)
 st.write(f"Your radio input is {radio_input}!")
 
-selectbox_input = st.selectbox("st.selectbox", ["cat", "dog", "monkey", "snake", "bird"])
+selectbox_input = st.selectbox(
+    "st.selectbox", ["cat", "dog", "monkey", "snake", "bird"]
+)
 st.write(f"Your selectbox input is {selectbox_input}!")
 
-multiselect_input = st.multiselect("st.multiselect", ["cat", "dog", "monkey", "snake", "bird"], default=["cat", "monkey"])
+multiselect_input = st.multiselect(
+    "st.multiselect",
+    ["cat", "dog", "monkey", "snake", "bird"],
+    default=["cat", "monkey"],
+)
 st.write(f"Your multiselect input is {multiselect_input}!")
 
-pills_input = st.pills("st.pills multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi", default=["cat", "monkey"])
+pills_input = st.pills(
+    "st.pills multi",
+    ["cat", "dog", "monkey", "snake", "bird"],
+    selection_mode="multi",
+    default=["cat", "monkey"],
+)
 st.write(f"Your pills input is {pills_input}!")
 
-segmented_control_input = st.segmented_control("st.segmented_control multi", ["cat", "dog", "monkey", "snake", "bird"], selection_mode="multi", default=["cat", "monkey"])
+segmented_control_input = st.segmented_control(
+    "st.segmented_control multi",
+    ["cat", "dog", "monkey", "snake", "bird"],
+    selection_mode="multi",
+    default=["cat", "monkey"],
+)
 st.write(f"Your segmented control input is {segmented_control_input}!")
 
-select_slider_input = st.select_slider("st.select_slider", options=["xsmall", "small", "medium", "large", "xlarge"], value="small")
+select_slider_input = st.select_slider(
+    "st.select_slider",
+    options=["xsmall", "small", "medium", "large", "xlarge"],
+    value="small",
+)
 st.write(f"Your select_slider input is {select_slider_input}!")
 
 color_input = st.color_picker("st.color_picker")
@@ -451,9 +497,9 @@ tab_a.write("tab 2 content")
 
 "st.chat_input"
 if st.toggle("Show chat input at the bottom of the screen", False):
-    st.chat_input()
+    st.chat_input(accept_file="multiple")
 else:
-    st.container().chat_input()
+    st.container().chat_input(accept_file="multiple")
 
 "st.chat_message"
 st.chat_message("assistant").write("Hello there!")
@@ -487,7 +533,7 @@ if st.button("st.progress"):
         time.sleep(0.05)
 
 if st.button("st.spinner"):
-    with st.spinner("Wait!"):
+    with st.spinner("Wait!", show_time=True):
         time.sleep(3)
         st.write("spinner works if you saw it!")
 
@@ -552,3 +598,18 @@ st.write(st.session_state)
 
 if st.button("Add st.query_params"):
     st.query_params["foo"] = "bar"
+
+"st.context.cookies"
+st.write(st.context.cookies)
+
+"st.context.headers"
+st.write(st.context.headers)
+
+"st.context.locale"
+st.write(st.context.locale)
+
+"st.context.timezone"
+st.write(st.context.timezone)
+
+"st.context.timezone_offset"
+st.write(st.context.timezone_offset)
