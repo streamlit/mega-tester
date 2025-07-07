@@ -599,11 +599,23 @@ st.write(st.context.cookies)
 "st.context.headers"
 st.write(st.context.headers)
 
+"st.context.ip_address"
+st.write(st.context.ip_address)
+
+"st.context.is_embedded"
+st.write(st.context.is_embedded)
+
 "st.context.locale"
 st.write(st.context.locale)
+
+"st.context.theme.type"
+st.write(st.context.theme.type)
 
 "st.context.timezone"
 st.write(st.context.timezone)
 
 "st.context.timezone_offset"
 st.write(st.context.timezone_offset)
+
+"st.context.url"
+st.write(st.context.url)
