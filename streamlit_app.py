@@ -504,7 +504,7 @@ audio_input = st.audio_input("st.audio_input", disabled=disabled, help=help)
 st.write(f"Your audio input is {audio_input}!")
 
 uploaded_file = st.file_uploader("st.file_uploader", type=["png", "jpg"], disabled=disabled, help=help)
-st.write("Your uploaded file is {uploaded_file}!")
+st.write(f"Your uploaded file is {uploaded_file}!")
 
 if st.toggle("Show camera input (requires camera permission)", False):
     cam_input = st.camera_input("st.camera_input", disabled=disabled, help=help)
