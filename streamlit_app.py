@@ -536,8 +536,13 @@ a, b = st.columns(2)
 a.write("column 1")
 b.write("column 2")
 
-c = st.container()
-c.write("st.container")
+"st.columns with border"
+a, b = st.columns(2, border=True)
+a.write("column 1")
+b.write("column 2")
+
+st.container().write("st.container")
+st.container(border=True).write("st.container")
 
 large_dialog = st.toggle("Large dialog", False)
 
