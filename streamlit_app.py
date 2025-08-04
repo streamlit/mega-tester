@@ -542,7 +542,7 @@ a.write("column 1")
 b.write("column 2")
 
 st.container().write("st.container")
-st.container(border=True).write("st.container")
+st.container(border=True).write("st.container with border")
 
 large_dialog = st.toggle("Large dialog", False)
 
