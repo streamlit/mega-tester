@@ -539,8 +539,10 @@ b.write("column 2")
 c = st.container()
 c.write("st.container")
 
+large_dialog = st.toggle("Large dialog", False)
 
-@st.dialog("Test dialog")
+
+@st.dialog("Test dialog", width="large" if large_dialog else "small")
 def dialog():
     st.write("Hello there!")
     if st.button("Close", disabled=disabled):
