@@ -524,7 +524,7 @@ audio_input = st.audio_input("st.audio_input", disabled=disabled, help=help)
 st.write(f"Your audio input is {audio_input}!")
 
 
-accept_multiple_files = st.segmented_control("accept_multiple_files", [False, True, "directory"], default="False")
+accept_multiple_files = st.segmented_control("accept_multiple_files", [False, True, "directory"], default=False)
 uploaded_file = st.file_uploader("st.file_uploader", type=["png", "jpg"], accept_multiple_files=accept_multiple_files, disabled=disabled, help=help)
 st.write(f"Your uploaded file is {uploaded_file}!")
 
