@@ -1,5 +1,4 @@
-streamlit-nightly
-streamlit-pdf
+streamlit-nightly[pdf]
 plotly
 altair
 numpy
