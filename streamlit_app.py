@@ -10,6 +10,12 @@ import streamlit as st
 
 LOREM = """Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."""
 
+def generate_sparkline_data(length=15, drift=0.05, volatility=10):
+    random_changes = np.random.normal(loc=drift, scale=volatility, size=length)
+    initial_value = np.random.normal(loc=50, scale=5)
+    data = initial_value + np.cumsum(random_changes)
+    return data.tolist()
+
 # Add disable toggle in sidebar
 with st.sidebar:
     help = "Tooltip text" if st.toggle("Show tooltips", True) else None
@@ -244,13 +250,23 @@ st.data_editor(
 "st.table"
 st.table(data.iloc[0:5])
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 col1.metric("st.metric positive", 1234, 123, help=help)
 col2.metric("st.metric negative", 1234, -123, help=help)
+col3.metric("st.metric neutral", 1234, 123, delta_color="off", help=help)
 
-col1, col2 = st.columns(2)
-col1.metric("st.metric with border positive", 1234, 123, border=True, help=help)
-col2.metric("st.metric with border negative", 1234, -123, border=True, help=help)
+col1, col2, col3 = st.columns(3)
+col1.metric("st.metric positive", 1234, 123, border=True, help=help, chart_data=generate_sparkline_data(), chart_type="line")
+col2.metric(
+    "st.metric negative",
+    1234,
+    -123,
+    border=True,
+    help=help,
+    chart_data=generate_sparkline_data(),
+    chart_type="area",
+)
+col3.metric("st.metric neutral", 1234, 123, border=True, help=help, chart_data=generate_sparkline_data(), chart_type="bar", delta_color="off")
 
 "st.json"
 st.json(
