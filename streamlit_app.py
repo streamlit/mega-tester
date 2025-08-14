@@ -530,7 +530,8 @@ st.video(
 )
 
 "st.pdf"
-st.pdf("https://file-examples.com/wp-content/storage/2017/10/file-sample_150kB.pdf")
+"Coming soon!"
+#st.pdf("https://file-examples.com/wp-content/storage/2017/10/file-sample_150kB.pdf")
 
 
 "## Layouts and containers"
