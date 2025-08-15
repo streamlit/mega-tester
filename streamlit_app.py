@@ -556,10 +556,10 @@ b.write("column 2")
 st.container().write("st.container")
 st.container(border=True).write("st.container with border")
 
-large_dialog = st.toggle("Large dialog", False)
+width = st.segmented_control("st.dialog width", ["small", "medium", "large"], default="small")
 
 
-@st.dialog("Test dialog", width="large" if large_dialog else "small")
+@st.dialog("Test dialog", width=width)
 def dialog():
     st.write("Hello there!")
     st.write(LOREM)
