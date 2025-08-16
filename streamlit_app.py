@@ -177,7 +177,7 @@ st.dataframe(data)
 st.dataframe(data, on_select="rerun", selection_mode=["multi-row", "multi-column"])
 
 "st.data_editor"
-st.data_editor(data, disabled=disabled)
+st.data_editor(data, num_rows="dynamic", disabled=disabled)
 
 "st.column_config"
 data_df = pd.DataFrame(
