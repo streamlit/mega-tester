@@ -539,7 +539,7 @@ st.video(
 )
 
 "st.pdf"
-st.pdf("https://file-examples.com/storage/fef6248bef689f7bb9c274f/2017/10/file-sample_150kB.pdf")
+st.pdf("https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf")
 
 
 "## Layouts and containers"
