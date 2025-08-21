@@ -174,7 +174,8 @@ data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 st.dataframe(data)
 
 "st.dataframe with selections"
-st.dataframe(data, on_select="rerun", selection_mode=["multi-row", "multi-column", "multi-cell"])
+event_data = st.dataframe(data, on_select="rerun", selection_mode=["multi-row", "multi-column", "multi-cell"])
+st.write("Your dataframe selection is", event_data.selection)
 
 "st.data_editor"
 st.data_editor(data, num_rows="dynamic", disabled=disabled)
