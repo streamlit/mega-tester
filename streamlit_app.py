@@ -558,9 +558,10 @@ st.container().write("st.container")
 st.container(border=True).write("st.container with border")
 
 width = st.segmented_control("st.dialog width", ["small", "medium", "large"], default="small")
+dismissible = st.toggle("st.dialog dismissible")
 
 
-@st.dialog("Test dialog", width=width)
+@st.dialog("Test dialog", width=width, dismissible=dismissible)
 def dialog():
     st.write("Hello there!")
     st.write(LOREM)
