@@ -558,7 +558,7 @@ st.container().write("st.container")
 st.container(border=True).write("st.container with border")
 
 width = st.segmented_control("st.dialog width", ["small", "medium", "large"], default="small")
-dismissible = st.toggle("st.dialog dismissible")
+dismissible = st.toggle("st.dialog dismissible", True)
 
 
 @st.dialog("Test dialog", width=width, dismissible=dismissible)
