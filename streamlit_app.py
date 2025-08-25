@@ -284,7 +284,9 @@ st.json(
 
 
 "## Chart elements"
-data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+more_lines = st.toggle("Show more lines", False)
+data = pd.DataFrame(np.random.randn(20, 16 if more_lines else 3), columns=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"] if more_lines else ["a", "b", "c"])
+
 "st.area_chart"
 stack = st.segmented_control(
     "stack",
