@@ -445,8 +445,9 @@ st.write(f"Your radio input is {radio_input}!")
 radio_input = st.radio("st.radio horizontal", ["cat", "dog"], horizontal=True, help=help, disabled=disabled)
 st.write(f"Your radio input is {radio_input}!")
 
+accept_new_options = st.toggle("accept new options")
 selectbox_input = st.selectbox(
-    "st.selectbox", ["cat", "dog", "monkey", "snake", "bird"], help=help, disabled=disabled
+    "st.selectbox", ["cat", "dog", "monkey", "snake", "bird"], accept_new_options=accept_new_options, help=help, disabled=disabled
 )
 st.write(f"Your selectbox input is {selectbox_input}!")
 
@@ -454,6 +455,7 @@ multiselect_input = st.multiselect(
     "st.multiselect",
     ["cat", "dog", "monkey", "snake", "bird"],
     default=["cat", "monkey"],
+    accept_new_options=accept_new_options,
     disabled=disabled,
     help=help,
 )
