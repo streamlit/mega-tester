@@ -135,11 +135,11 @@ st.markdown(
 st.markdown("""
 Text colors: 
 
-:blue[blue] :green[green] :orange[orange] :red[red] :violet[violet] :gray[gray] :rainbow[rainbow] :primary[primary]
+:blue[blue] :green[green] :yellow[yellow] :orange[orange] :red[red] :violet[violet] :gray[gray] :rainbow[rainbow] :primary[primary]
 
-:blue-background[blue] :green-background[green] :orange-background[orange] :red-background[red] :violet-background[violet] :gray-background[gray] :rainbow-background[rainbow] :primary-background[primary]
+:blue-background[blue] :green-background[green] :yellow-background[yellow] :orange-background[orange] :red-background[red] :violet-background[violet] :gray-background[gray] :rainbow-background[rainbow] :primary-background[primary]
 
-:blue-badge[blue] :green-badge[green] :orange-badge[orange] :red-badge[red] :violet-badge[violet] :gray-badge[gray] :primary-badge[primary]
+:blue-badge[blue] :green-badge[green] :yellow-badge[yellow] :orange-badge[orange] :red-badge[red] :violet-badge[violet] :gray-badge[gray] :primary-badge[primary]
 """)
 st.title("st.title", help=help)
 st.header("st.header", help=help)
