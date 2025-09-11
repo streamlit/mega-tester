@@ -516,7 +516,7 @@ st.write(f"Your text input is {text_input}!")
 text_area_input = st.text_area("st.text_area", disabled=disabled, help=help)
 st.write(f"Your text_area input is {text_area_input}!")
 
-sample_rate = st.segmented_control("sample_rate", [8000, 16000, 32000, 48000, None])
+sample_rate = st.segmented_control("sample_rate", [8000, 16000, 32000, 48000, None], default=16000)
 audio_input = st.audio_input("st.audio_input", sample_rate=sample_rate, disabled=disabled, help=help)
 st.write(f"Your audio input is {audio_input}!")
 
