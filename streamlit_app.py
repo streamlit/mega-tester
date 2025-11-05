@@ -326,7 +326,6 @@ st.altair_chart(
     alt.Chart(data)
     .mark_circle()
     .encode(x="a", y="b", size="c", color="c", tooltip=["a", "b", "c"]),
-    use_container_width=True,
 )
 
 "st.vega_lite_chart"
@@ -341,7 +340,6 @@ st.vega_lite_chart(
             "color": {"field": "c", "type": "quantitative"},
         },
     },
-    use_container_width=True,
 )
 
 "st.plotly_chart"
@@ -356,7 +354,7 @@ fig = px.scatter(
     log_x=True,
     size_max=60,
 )
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig)
 
 "st.pydeck_chart"
 data = pd.DataFrame(
