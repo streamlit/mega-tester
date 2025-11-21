@@ -508,6 +508,9 @@ st.write(f"Your date input is {date_input}!")
 time_input = st.time_input("st.time_input", disabled=disabled, help=help)
 st.write(f"Your time input is {time_input}!")
 
+datetime_input = st.datetime_input("st.datetime_input", disabled=disabled, help=help)
+st.write(f"Your datetime input is {time_input}!")
+
 text_input = st.text_input("st.text_input", disabled=disabled, help=help)
 st.write(f"Your text input is {text_input}!")
 
